@@ -1,6 +1,9 @@
 import PySide2
 import cv2
 
+import base64
+import json
+import requests
 from PySide2.QtGui import QIcon
 from PySide2 import QtGui
 from PySide2.QtWidgets import QApplication
@@ -8,6 +11,8 @@ from PySide2.QtUiTools import QUiLoader
 
 import os
 from plateDetect import yolo
+
+
 
 net = yolo()
 
@@ -30,6 +35,7 @@ class CarPlates:
                         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.72 Safari/537.36 Edg/90.0.818.41'}
         self.request_url = "http://139.196.240.235:10000/"
 
+
  # 获取摄像头视频
     def get_video(self):
         self.is_cap = 1
@@ -41,6 +47,26 @@ class CarPlates:
             img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
             showImage = QtGui.QImage(img.data, img.shape[1], img.shape[0], QtGui.QImage.Format_RGB888)
             plate_str = ''
+            for plate in plates:
+                image = cv2.imencode('.jpg', plate)[1]
+                base64_data = str(base64.b64encode(image))[2:-1]
+                params = {'img': base64_data}
+                response = requests.post(self.request_url, data=params, headers=self.headers)
+                # print(response.text)
+                if len(json.loads(response.text)['plate']) > 0:
+                    # print(response.json())
+                    plate_str += response.json()['plate']       #plate_str是识别得到的车牌字符文本
+                    plate_str += '\n'
+            self.ui.plate_char.setText(plate_str)
+            self.ui.plate_char.setStyleSheet("font-size:30")    #将显示的车牌字符大小统一
+            self.ui.car.setPixmap(QtGui.QPixmap.fromImage(showImage))
+            QApplication.processEvents()
+            # time.sleep(0.04)
+        self.cap.release()
+        self.ui.car.setText('摄像头未打开')
+
+
+
 
 
 app = QApplication([])
