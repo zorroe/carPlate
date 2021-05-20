@@ -17,13 +17,19 @@
 2、获取图像
 
 3、图像压缩编码
+
 image = cv2.imencode('.jpg', plate)[1]
+
 base64_data = str(base64.b64encode(image))[2:-1]
+
 params = {'img': base64_data}
 
 4、上传至服务器
+
 服务端的地址：self.request_url = "http://139.196.240.235:10000/"
+
 服务端对上传过来的图片信息进行识别处理
+
 response = requests.post(self.request_url, data=params, headers=self.headers)
 
 5、接受服务器的返回信息
