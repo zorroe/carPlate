@@ -24,8 +24,8 @@ class CarPlates:
         # 从 UI 定义中动态 创建一个相应的窗口对象
         # 注意：里面的控件对象也成为窗口对象的属性了
         self.ui = QUiLoader().load('carPlateRec.ui')
-        self.ui.start.clicked.connect(self.get_video)
-        self.ui.end.clicked.connect(self.change_is_cap)
+        self.ui.start.clicked.connect(self.get_video)     #绑定开始识别
+        self.ui.end.clicked.connect(self.change_is_cap)   #绑定停止识别
         self.ui.car.setText('摄像头未打开')
         self.is_cap = 1
         self.headers = {'content-type': 'application/x-www-form-urlencoded',
