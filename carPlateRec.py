@@ -62,7 +62,7 @@ class CarPlates:
         self.cap.release()
         self.ui.car.setText('摄像头未打开')
 
-    def change_is_cap(self):   #self.is_cap设置为0
+    def change_is_cap(self):   #设置为0
         self.is_cap = 0
 
 
