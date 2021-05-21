@@ -9,6 +9,7 @@ from PySide2 import QtGui
 from PySide2.QtWidgets import QApplication
 from PySide2.QtUiTools import QUiLoader
 
+
 import os
 from plateDetect import yolo
 
