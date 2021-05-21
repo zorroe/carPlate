@@ -35,4 +35,8 @@ response = requests.post(self.request_url, data=params, headers=self.headers)
 
 5、 接受服务器的返回信息
 
-![车牌](https://github.com/LiXuuuu/carPlate/blob/main/car.jpeg)
+![车牌](https://github.com/LiXuuuu/carPlate/blob/main/Image/car.jpeg)
+
+![图形化窗口](https://github.com/LiXuuuu/carPlate/blob/main/Image/1.jpg)
+
+![识别效果](https://github.com/LiXuuuu/carPlate/blob/main/Image/2.jpg)
