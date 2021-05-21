@@ -37,15 +37,12 @@ response = requests.post(self.request_url, data=params, headers=self.headers)
 
 测试的车牌图片：
 
-![车牌](https://github.com/LiXuuuu/carPlate/blob/main/Image/car.jpeg)
+<img src="https://github.com/LiXuuuu/carPlate/blob/main/Image/car.jpeg" width="300" height="300" alt="车牌"/><br/>
 
-图形化窗口
-![图形化窗口](https://github.com/LiXuuuu/carPlate/blob/main/Image/1.jpg)
+图形化窗口：
 
-车牌识别效果
-![车牌识别效果](https://github.com/LiXuuuu/carPlate/blob/main/Image/2.jpg)
+<img src="https://github.com/LiXuuuu/carPlate/blob/main/Image/1.jpg" width="300" height="300" alt="图形化窗口"/><br/>
 
-<img src="https://github.com/LiXuuuu/carPlate/blob/main/Image/car.jpeg" width="200" height="200" alt="车牌"/><br/>
-<img src="https://github.com/LiXuuuu/carPlate/blob/main/Image/1.jpg" width="200" height="200" alt="图形化窗口"/><br/>
-<img src="https://github.com/LiXuuuu/carPlate/blob/main/Image/2.jpg" width="200"  alt="车牌识别效果"/><br/>
+识别效果：
+<img src="https://github.com/LiXuuuu/carPlate/blob/main/Image/2.jpg" width="300" height="300"  alt="识别效果"/><br/>
 
