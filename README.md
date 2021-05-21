@@ -44,5 +44,6 @@ response = requests.post(self.request_url, data=params, headers=self.headers)
 <img src="https://github.com/LiXuuuu/carPlate/blob/main/Image/1.jpg" width="300" height="300" alt="图形化窗口"/><br/>
 
 识别效果：
+
 <img src="https://github.com/LiXuuuu/carPlate/blob/main/Image/2.jpg" width="300" height="300"  alt="识别效果"/><br/>
 
