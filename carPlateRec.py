@@ -33,6 +33,12 @@ class CarPlates:
                         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.72 Safari/537.36 Edg/90.0.818.41'}
         self.request_url = "http://139.196.240.235:10000/"
 
+
+
+
+
+
+
  # 获取摄像头视频
     def get_video(self):
         self.is_cap = 1
