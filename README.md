@@ -44,16 +44,8 @@
    * <font color=#FFA07A>**<u>原始</u>**</font>：所有函数都在一个线程，其中YoLo模型检测车牌，上传图片然后接受返回信息都是耗时操作。造成客户端卡顿且CPU占用高！
    * <font color=#00FF7F>**<u>解决方案</u>**</font>：将YoLo模型检测车牌和上传图像接受返回信息这两个操作放到子线程，每隔0.5s检测一帧图像，然后上传接收。
 
-<iframe 
-        src="//player.bilibili.com/player.html?aid=290828963&bvid=BV1yf4y1h7Zb&cid=345265126&page=1" 
-		width=800
-        height=600
-        scrolling="no" 
-        border="0" 
-        frameborder="no" 
-        framespacing="0" 
-        allowfullscreen="true"> 
-</iframe>
+![单线程](https://typora-lixuan.oss-cn-shanghai.aliyuncs.com/单线程.gif)
+
 
 ### 桌面端V1.0
 
@@ -64,23 +56,15 @@
 
 1.0版本将之前版本的两个问题进行了优化，第一个问题就是服务端处理接受图片的方式。具体提升效果如下表所示：
 
-|   获取图片方式   |   时间    |
+|   获取图片方式   | 时间 (s)  |
 | :--------------: | :-------: |
 |   使用文件写读   | 3.8819384 |
 | 使用字节流直接读 | 3.3374874 |
 
 解决的第二个问题是单线程问题，V0.1版本的客户端为单线程版本，将耗时操作放在了主线程，然后V1.0版本将耗时操作放到子线程，界面流畅。
 
-<iframe 
-        src="//player.bilibili.com/player.html?aid=630790943&bvid=BV1db4y1o7gS&cid=345242156&page=1" 
-		height=600
-        width=800
-        scrolling="no" 
-        border="0" 
-        frameborder="no" 
-        framespacing="0" 
-        allowfullscreen="true"> 
-</iframe>
+![多线程](https://typora-lixuan.oss-cn-shanghai.aliyuncs.com/多线程.gif)
+
 
 ### release信息
 
