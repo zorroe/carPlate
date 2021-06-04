@@ -78,21 +78,23 @@ class CarPlates:
                 # print(response.json())
                 self.plate_str += response.json()['plate']
                 self.plate_str += '\n'
-        self.ui.plate_char.setText(self.plate_str)
-        self.ui.plate_char.setStyleSheet("font-size:30")
+                # print(len(self.plate_str))
+        if(len(self.plate_str) == 8):
+            self.ui.plate_char.setText(self.plate_str)
+            self.ui.plate_char.setStyleSheet("font-size:30")
 
     # 获取摄像头视频
     def get_video(self):
         self.is_cap = 1
         self.cap = cv2.VideoCapture(0)
         # self.cap = cv2.VideoCapture(self.cap_url)
-        t0 = time.clock()
+        t0 = time.perf_counter()
         while (self.is_cap):
             ret, frame = self.cap.read()
             self.img = frame
             thread_get_plate = Thread(target=self.get_plate)
             thread_show_str = Thread(target=self.show_str)
-            t1 = time.clock()
+            t1 = time.perf_counter()
             if t1 - t0 > 0.5:
                 thread_get_plate.start()
                 thread_show_str.start()
